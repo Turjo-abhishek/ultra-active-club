@@ -3,7 +3,7 @@ import { faLocationDot} from '@fortawesome/free-solid-svg-icons';
 import myImage from '../../Photos/me.png'
 import React, { useState } from 'react';
 
-const Profile = () => {
+const Profile = ({exerciseTime}) => {
 const second = [
     {
         label:'10s',
@@ -64,7 +64,7 @@ const [time,setTime]=useState(0)
             <h5 className='text-start my-3 '>Exercise Details</h5>
             <div className='d-flex justify-content-around align-items-center bg-light py-3 rounded mb-4'>
                 <h5>Exercise Time</h5>
-                <span>{} <span>Seconds</span></span>
+                <span>{exerciseTime} <span>Seconds</span></span>
             </div>
             <div className='d-flex justify-content-around align-items-center bg-light py-3 rounded'>
                 <h5>Break Time</h5>

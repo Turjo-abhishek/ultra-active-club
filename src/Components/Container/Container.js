@@ -8,6 +8,10 @@ import Profile from '../Profile/Profile';
 const Container = () => {
     const [activities, setActivities] = useState([]);
     const [exerciseTime, setExerciseTime] = useState(0);
+
+    const handleBtnValue = (activity) =>{
+        setExerciseTime(exerciseTime + activity)
+    }
     
     useEffect(() => {
         fetch('data.json')
@@ -24,12 +28,12 @@ const Container = () => {
                 <h4 className='text-start px-5 my-4'>Select today's activities</h4>
                 <div className='custom-activities-container w-100 mx-auto'>
                 {
-                    activities.map(activity => <Exercise key={activity.id} activity={activity}></Exercise>)
+                    activities.map(activity => <Exercise key={activity.id} activity={activity} handleBtnValue={handleBtnValue}></Exercise>)
                 }
                 </div>
             </div>
             <div className='profile-container'> 
-                <Profile></Profile>
+                <Profile exerciseTime={exerciseTime} />
             </div>
 
         </div>
