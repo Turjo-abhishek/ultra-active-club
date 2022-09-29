@@ -1,7 +1,4 @@
-.custom-container{
-    display: grid;
-    grid-template-columns: 4fr 1.5fr;
-}
+
 .custom-activities-container{
     display: grid;
     grid-template-columns: repeat(1,1fr);
@@ -10,7 +7,10 @@
 
 @media only screen and (min-width: 997px) {
     
-
+    .custom-container{
+        display: grid;
+        grid-template-columns: 4fr 1.5fr;
+    }
     .custom-activities-container{
         display: grid;
         grid-template-columns: repeat(3,1fr);
