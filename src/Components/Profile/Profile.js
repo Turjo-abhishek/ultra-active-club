@@ -1,7 +1,8 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationDot} from '@fortawesome/free-solid-svg-icons';
 import myImage from '../../Photos/me.png'
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+
 
 const Profile = ({exerciseTime}) => {
 const second = [
@@ -27,7 +28,16 @@ const second = [
     },
 ]
 
-const [time,setTime]=useState(0)
+const [time,setTime]=useState(0);
+
+const addToDb = (value) => {
+    setTime(value)
+    localStorage.setItem('exerciseTime', value);
+}
+useEffect(()=>{
+    const exercise = localStorage.getItem('exerciseTime');
+    setTime(exercise);
+},[])
 
     return (
         <div className='bg-white p-3 h-100'>
@@ -58,7 +68,7 @@ const [time,setTime]=useState(0)
                 <h5 className='text-start my-3 '>Add a Break</h5>
             <div className='bg-light py-4 px-2 d-flex justify-content-around rounded'>
                 {second.map((item,i)=>(
-                    <button className={`border-0 rounded-pill fw-semibold ${item.value === time ? 'bg-primary': 'bg-white'}`} style={{height:"40px", width:"40px"}} key={i} onClick={()=> setTime(item.value)}>{item.label}</button>
+                    <button className={`border-0 rounded-pill fw-semibold ${item.value === time ? 'bg-primary': 'bg-white'}`} style={{height:"40px", width:"40px"}} key={i} onClick={()=> addToDb(item.value)}>{item.label}</button>
                     ))}
             </div>
             <h5 className='text-start my-3 '>Exercise Details</h5>
