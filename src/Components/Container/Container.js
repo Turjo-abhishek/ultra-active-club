@@ -20,7 +20,7 @@ const Container = () => {
                     <img className='rounded-pill' height={50} width={50} src={logo} alt="" />
                     <h3>Activities Club</h3>
                 </div>
-                <h4>Select today's activities</h4>
+                <h4 className='text-start px-5 my-4'>Select today's activities</h4>
                 <div className='custom-activities-container w-100 mx-auto'>
                 {
                     activities.map(activity => <Exercise key={activity.id} activity={activity}></Exercise>)
