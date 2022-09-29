@@ -66,6 +66,10 @@ const [time,setTime]=useState(0)
                 <h5>Exercise Time</h5>
                 <span>{} <span>Seconds</span></span>
             </div>
+            <div className='d-flex justify-content-around align-items-center bg-light py-3 rounded'>
+                <h5>Break Time</h5>
+                <span>{time} <span>Seconds</span></span>
+            </div>
             
         </div>
     );
