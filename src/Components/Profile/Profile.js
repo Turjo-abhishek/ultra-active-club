@@ -2,6 +2,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faLocationDot} from '@fortawesome/free-solid-svg-icons';
 import myImage from '../../Photos/me.png'
 import React, { useEffect, useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Profile = ({exerciseTime}) => {
@@ -30,6 +32,8 @@ const second = [
 
 const [time,setTime]=useState(0);
 
+const notify = () => toast("Task Completed!");
+
 const addToDb = (value) => {
     setTime(value)
     localStorage.setItem('exerciseTime', value);
@@ -40,6 +44,7 @@ useEffect(()=>{
 },[])
 
     return (
+        <>
         <div className='bg-white p-3 h-100'>
             <div className='d-flex align-items-center gap-2 mt-5'>
                 <img className='rounded-pill' src={myImage} width={42} height={42} alt="" />
@@ -80,8 +85,10 @@ useEffect(()=>{
                 <h5>Break Time</h5>
                 <span>{time} <span>Seconds</span></span>
             </div>
-            <button className='btn btn-info btn-lg text-white mt-4 px-5 py-2 fw-semibold'>Activity Completed</button>
+            <button onClick={notify} className='btn btn-info btn-lg text-white mt-4 px-5 py-2 fw-semibold'>Activity Completed</button>
         </div>
+        <ToastContainer />
+        </>
     );
 };
 
