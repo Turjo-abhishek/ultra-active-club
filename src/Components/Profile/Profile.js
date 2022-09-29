@@ -58,7 +58,7 @@ const [time,setTime]=useState(0)
                 <h5 className='text-start my-3 '>Add a Break</h5>
             <div className='bg-light py-4 px-2 d-flex justify-content-around rounded'>
                 {second.map((item,i)=>(
-                    <button className='border-0 bg-white rounded-pill fw-semibold' style={{height:"40px", width:"40px"}} key={i} onClick={()=> setTime(item.value)}>{item.label}</button>
+                    <button className={`border-0 rounded-pill fw-semibold ${item.value === time ? 'bg-primary': 'bg-white'}`} style={{height:"40px", width:"40px"}} key={i} onClick={()=> setTime(item.value)}>{item.label}</button>
                     ))}
             </div>
             <h5 className='text-start my-3 '>Exercise Details</h5>
@@ -70,7 +70,7 @@ const [time,setTime]=useState(0)
                 <h5>Break Time</h5>
                 <span>{time} <span>Seconds</span></span>
             </div>
-            
+            <button className='btn btn-info btn-lg text-white mt-4 px-5 py-2 fw-semibold'>Activity Completed</button>
         </div>
     );
 };

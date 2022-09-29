@@ -7,6 +7,7 @@ import Profile from '../Profile/Profile';
 
 const Container = () => {
     const [activities, setActivities] = useState([]);
+    const [exerciseTime, setExerciseTime] = useState(0);
     
     useEffect(() => {
         fetch('data.json')
