@@ -1,0 +1,10 @@
+.custom-container{
+    display: grid;
+    grid-template-columns: 4fr 1.5fr;
+}
+
+.custom-activities-container{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    padding: 20px 40px;
+}
